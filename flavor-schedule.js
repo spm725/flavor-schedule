@@ -38,8 +38,11 @@ const flavorSection = document.getElementById('flavor-section');
 // Helper function to format dates (MM/DD)
 const formatDate = (dateStr) => {
     const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Add leading zero for single-digit months
+    const day = String(date.getDate()).padStart(2, '0'); // Add leading zero for single-digit days
+    return `${month}/${day}`;
 };
+
 
 if (flavorSection) {
     const currentFlavor = flavorData.find(
