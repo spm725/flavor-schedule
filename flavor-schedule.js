@@ -48,13 +48,26 @@ if (flavorSection) {
     const renderFlavorBox = (flavor, isCurrent = false) => {
         const flavorBox = document.createElement('div');
         flavorBox.className = `flavor-box ${isCurrent ? 'current-flavor' : ''}`;
-        flavorBox.innerHTML = `
-            <div class="flavor-text">
-                <h3>${isCurrent ? 'Current Flavor' : 'Upcoming Flavor'}</h3>
-                <p>${flavor.text}</p>
-            </div>
-            <img src="${flavor.imageSrc}" alt="${flavor.text}" class="flavor-image" />
-        `;
+
+        if (isCurrent) {
+            // Render current flavor with larger image
+            flavorBox.innerHTML = `
+                <div class="flavor-text">
+                    <h3>Current Flavor</h3>
+                    <p>${flavor.text}</p>
+                </div>
+                <img src="${flavor.imageSrc}" alt="${flavor.text}" class="current-flavor-image" />
+            `;
+        } else {
+            // Render upcoming flavors without an image
+            flavorBox.innerHTML = `
+                <div class="flavor-text">
+                    <h3>Upcoming Flavor</h3>
+                    <p>${flavor.text}</p>
+                </div>
+            `;
+        }
+
         flavorSection.appendChild(flavorBox);
     };
 
