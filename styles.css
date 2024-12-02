@@ -11,10 +11,11 @@ body {
 .flavor-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
     margin-top: 30px;
     max-width: 1200px;
-    gap: 15px;
+    gap: 20px;
 }
 
 .flavor-box {
@@ -22,14 +23,25 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    width: 300px;
+    width: 280px; /* Adjusted to prevent overflow */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.flavor-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.current-flavor {
+    border: 2px solid #ff9800; /* Highlight current flavor */
+    box-shadow: 0 6px 12px rgba(255, 152, 0, 0.3); /* Add a glowing effect */
 }
 
 .flavor-image {
     width: 100%;
-    max-width: 360px;
+    max-width: 260px;
     height: auto;
     object-fit: contain;
     border-radius: 10px;
