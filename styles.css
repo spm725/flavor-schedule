@@ -1,80 +1,122 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif; /* Retain the font */
-    background-color: #f9f9f9; /* Light background for readability */
+    font-family: Arial, sans-serif; /* Clean font */
+    background-color: #f9f9f9; /* Light gray background */
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-/* Container for the flavor section */
-#flavor-section {
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    padding: 10px 20px;
     display: flex;
-    flex-direction: row; /* Align flavor box and image horizontally */
-    align-items: center; /* Align centers of flavor box and image vertically */
-    gap: 20px; /* Space between flavor box and image */
-    max-width: 800px; /* Limit section width */
-    width: 100%; /* Make section responsive */
-    margin-top: 20px; /* Space below the title */
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.nav-menu a:hover {
+    color: #FFFF33; /* Highlight yellow */
 }
 
-/* Flavor box */
-.flavor-box {
-    flex: 1; /* Allow the box to grow within the container */
-    background-color: #ffffff; /* White background for the box */
-    border: 1px solid #ddd; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 15px; /* Internal spacing */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: left; /* Align text to the left */
+/* Container */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Section Header */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Flavor Section */
+#flavor-section {
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    gap: 8px; /* Spacing between elements */
-    max-width: 400px; /* Restrict box size */
-    font-size: 14px; /* Smaller, clean font size */
-    box-sizing: border-box;
+    flex-direction: row;
+    align-items: center; /* Center flavor box and image vertically */
+    gap: 20px;
+}
+
+/* Flavor Box */
+.flavor-box {
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 400px;
+    font-size: 14px;
 }
 
 /* Highlight for the current flavor */
 .current-highlight {
-    background-color: #FFFF33; /* Bright highlighter yellow */
+    background-color: #FFFF33; /* Bright yellow highlight */
     padding: 5px;
-    margin: 5px 0;
-    border-radius: 4px; /* Slight rounding for the highlight */
+    border-radius: 4px;
 }
 
 /* Flavor text */
 .flavor-text {
-    margin: 5px 0; /* Spacing between flavor text */
+    margin: 10px 0;
 }
 
-/* Current flavor image */
+/* Current Flavor Image */
 .current-flavor-image {
-    width: 30%; /* Reduce image size to 30% */
+    width: 30%; /* Smaller size */
     height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the image is not cropped */
-    border-radius: 10px; /* Rounded corners for the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow around the image */
-    align-self: center; /* Center the image horizontally */
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer-content {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.footer-menu a {
+    text-decoration: none;
+    color: #fff;
+}
+.footer-menu a:hover {
+    color: #FFFF33;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     #flavor-section {
-        flex-direction: column; /* Stack flavor box and image vertically */
-        align-items: center;
+        flex-direction: column; /* Stack vertically */
     }
-
     .current-flavor-image {
-        margin-top: 10px; /* Add space above the image */
-        width: auto; /* Reset width for smaller screens */
-        max-width: 100%; /* Allow full width in small screens */
+        width: 50%; /* Adjust size for smaller screens */
     }
-
     .flavor-box {
-        max-width: 100%; /* Allow flavor box to take full width */
+        max-width: 100%;
     }
 }
