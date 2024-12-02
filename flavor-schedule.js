@@ -35,6 +35,12 @@ const flavorData = [
 const today = new Date().toISOString().split('T')[0];
 const flavorSection = document.getElementById('flavor-section');
 
+// Helper function to format dates (MM/DD)
+const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+};
+
 if (flavorSection) {
     const currentFlavor = flavorData.find(
         (flavor) => today >= flavor.start && today <= flavor.end
@@ -52,7 +58,7 @@ if (flavorSection) {
     if (currentFlavor) {
         const currentFlavorText = `
             <div class="flavor-text current-highlight">
-                <p>${currentFlavor.text}</p>
+                <p>${formatDate(currentFlavor.start)} - ${formatDate(currentFlavor.end)}: ${currentFlavor.text}</p>
             </div>
         `;
         flavorBox.innerHTML += currentFlavorText;
@@ -64,7 +70,7 @@ if (flavorSection) {
     upcomingFlavors.forEach((flavor) => {
         const upcomingFlavorText = `
             <div class="flavor-text">
-                <p>${flavor.text}</p>
+                <p>${formatDate(flavor.start)} - ${formatDate(flavor.end)}: ${flavor.text}</p>
             </div>
         `;
         flavorBox.innerHTML += upcomingFlavorText;
