@@ -14,7 +14,7 @@ body {
 #flavor-section {
     display: flex;
     flex-direction: row; /* Align text and image horizontally */
-    align-items: flex-start; /* Align image to the top of the text */
+    align-items: center; /* Vertically center the flavor box and image */
     gap: 20px; /* Space between flavor box and image */
     max-width: 800px; /* Limit section width */
     width: 100%; /* Make section responsive */
@@ -53,13 +53,12 @@ body {
 
 /* Image design */
 .current-flavor-image {
-    width: calc(125%); /* Make image 25% larger than the flavor box */
-    max-width: 500px; /* Restrict maximum size */
+    width: 75%; /* Make the image 25% smaller than the flavor box */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure the image is not cropped */
     border-radius: 10px; /* Rounded corners for the image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow around the image */
-    align-self: flex-start; /* Align image to the top of the box */
+    align-self: center; /* Align image to the center of its container */
 }
 
 /* Responsive Design */
