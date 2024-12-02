@@ -53,15 +53,15 @@ body {
     margin: 5px 0 0;
 }
 
-/* Current flavor image */
 .current-flavor-image {
-    width: 150px; /* Adjusted to a more reasonable size */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the image is not cropped */
+    width: 20%; /* Relative size for responsiveness */
+    max-width: 150px; /* Prevent it from getting too large */
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
-    right: -170px; /* Adjusted to position neatly outside the flavor box */
+    right: -170px;
 }
 
 /* Responsive Behavior */
