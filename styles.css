@@ -36,6 +36,7 @@ body {
     align-items: center; /* Center text horizontally */
     gap: 8px;
     max-width: 400px;
+    height: 250px; /* Define consistent height for flavor box */
     font-size: 16px; /* Slightly larger font for readability */
     box-sizing: border-box;
 }
@@ -43,15 +44,17 @@ body {
 /* Highlight for the current flavor */
 .current-highlight {
     background-color: #FFFF33; /* Bright yellow highlight */
-    padding: 2px 4px; /* Smaller padding closer to text size */
-    border-radius: 4px; /* Slight rounding */
-    display: inline-block; /* Fit around the text */
-    margin: 5px 0;
+    padding: 0; /* No padding */
+    border-radius: 2px; /* Slight rounding */
+    display: inline-block; /* Shrinks highlight to fit text */
+    margin: 0; /* Remove extra margin */
+    line-height: 1; /* Match text line height */
 }
 
 /* Flavor text */
 .flavor-text {
     margin: 5px 0; /* Spacing between flavor text */
+    text-align: center; /* Ensure text is centered */
 }
 
 /* Current flavor image */
