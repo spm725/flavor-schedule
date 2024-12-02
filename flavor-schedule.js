@@ -44,43 +44,49 @@ const formatDate = (dateStr) => {
 };
 
 if (flavorSection) {
+    // Find the current flavor based on today's date
     const currentFlavor = flavorData.find(
         (flavor) => today >= flavor.start && today <= flavor.end
     );
+
+    // Get the next 3 upcoming flavors after today
     const upcomingFlavors = flavorData
         .filter((flavor) => new Date(flavor.start) > new Date(today))
         .slice(0, 3);
 
-    flavorSection.innerHTML = ''; // Clear section before adding flavors
+    // Clear the flavor section content before adding new content
+    flavorSection.innerHTML = '';
 
+    // Create a single box for current and upcoming flavors
     const flavorBox = document.createElement('div');
-    flavorBox.className = 'flavor-box'; // Single box for all flavors
+    flavorBox.className = 'flavor-box'; // Style with a CSS class
 
-    // Add current flavor
+    // Add the current flavor with a single date range
     if (currentFlavor) {
-        const currentFlavorText = `
+        const currentFlavorHTML = `
             <div class="flavor-text current-highlight">
                 <p>${formatDate(currentFlavor.start)} - ${formatDate(currentFlavor.end)}: ${currentFlavor.text}</p>
             </div>
         `;
-        flavorBox.innerHTML += currentFlavorText;
+        flavorBox.innerHTML += currentFlavorHTML;
     } else {
         console.warn('No current flavor found for today:', today);
     }
 
-    // Add upcoming flavors
+    // Add each upcoming flavor with a single date range
     upcomingFlavors.forEach((flavor) => {
-        const upcomingFlavorText = `
+        const upcomingFlavorHTML = `
             <div class="flavor-text">
                 <p>${formatDate(flavor.start)} - ${formatDate(flavor.end)}: ${flavor.text}</p>
             </div>
         `;
-        flavorBox.innerHTML += upcomingFlavorText;
+        flavorBox.innerHTML += upcomingFlavorHTML;
     });
 
+    // Add the box to the flavor section
     flavorSection.appendChild(flavorBox);
 
-    // Add the current flavor image separately and align it
+    // Add the current flavor image, positioned separately
     if (currentFlavor) {
         const currentFlavorImage = document.createElement('img');
         currentFlavorImage.src = currentFlavor.imageSrc;
