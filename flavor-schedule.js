@@ -32,27 +32,41 @@ const flavorData = [
   { id: 'flavor35', text: '7/14/25 - 7/20/25 Butterfinger®', start: '2025-07-14', end: '2025-07-20', imageSrc: 'images/butterfinger.jpg' }
 ];
 
-const today = new Date().toISOString().split('T')[0];  // Ensure the date is in YYYY-MM-DD format
-const flavorBox = document.getElementById('flavorBox');
-const flavorImage = document.getElementById('flavorImage');
+const today = new Date().toISOString().split('T')[0];
+const flavorSection = document.getElementById('flavor-section');
 
-if (flavorBox && flavorImage) {
-    let flavor = null;
+if (flavorSection) {
+    const currentFlavor = flavorData.find(
+        (flavor) => today >= flavor.start && today <= flavor.end
+    );
 
-    for (let i = 0; i < flavorData.length; i++) {
-        const flavorEntry = flavorData[i];
+    const upcomingFlavors = flavorData
+        .filter((flavor) => new Date(flavor.start) > new Date(today))
+        .slice(0, 3);
 
-        // Check if today's date is within the flavor's date range
-        if (today >= flavorEntry.start && today <= flavorEntry.end) {
-            flavor = flavorEntry;
-            break;
-        }
+    flavorSection.innerHTML = '';
+
+    if (currentFlavor) {
+        const currentFlavorBox = document.createElement('div');
+        currentFlavorBox.className = 'flavor-box current-flavor';
+        currentFlavorBox.innerHTML = `
+            <h3>Current Flavor</h3>
+            <img src="${currentFlavor.imageSrc}" alt="${currentFlavor.text}" class="flavor-image" />
+            <p>${currentFlavor.text}</p>
+        `;
+        flavorSection.appendChild(currentFlavorBox);
     }
 
-    if (flavor) {
-        flavorBox.textContent = flavor.text; // Update the flavor text
-        flavorImage.src = flavor.imageSrc;   // Update the flavor image
-    }
+    upcomingFlavors.forEach((flavor, index) => {
+        const upcomingFlavorBox = document.createElement('div');
+        upcomingFlavorBox.className = 'flavor-box';
+        upcomingFlavorBox.innerHTML = `
+            <h3>Upcoming Flavor ${index + 1}</h3>
+            <img src="${flavor.imageSrc}" alt="${flavor.text}" class="flavor-image" />
+            <p>${flavor.text}</p>
+        `;
+        flavorSection.appendChild(upcomingFlavorBox);
+    });
 } else {
-    console.error('Flavor box or image element is missing!');
+    console.error('Flavor section is missing!');
 }
