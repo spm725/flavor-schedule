@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif; /* Modern font similar to Super Chix */
     background-color: #f9f9f9;
     margin: 0;
     padding: 20px;
@@ -21,39 +21,42 @@ body {
     margin-top: 20px;
 }
 
-/* Flavor box (container for all flavors) */
+/* Flavor box */
 .flavor-box {
     flex: 1;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center; /* Center text horizontally */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack flavors vertically */
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text horizontally */
     gap: 8px;
     max-width: 400px;
-    font-size: 14px;
+    font-size: 16px; /* Slightly larger font for readability */
     box-sizing: border-box;
 }
 
 /* Highlight for the current flavor */
 .current-highlight {
-    background-color: #FFFF33;
-    padding: 5px;
+    background-color: #FFFF33; /* Bright yellow highlight */
+    padding: 2px 4px; /* Smaller padding closer to text size */
+    border-radius: 4px; /* Slight rounding */
+    display: inline-block; /* Fit around the text */
     margin: 5px 0;
-    border-radius: 4px;
 }
 
 /* Flavor text */
 .flavor-text {
-    margin: 5px 0;
+    margin: 5px 0; /* Spacing between flavor text */
 }
 
 /* Current flavor image */
 .current-flavor-image {
-    width: 25%; /* Image size proportional to the flavor box */
+    width: 25%; /* Smaller size */
     height: auto;
     object-fit: contain;
     border-radius: 10px;
@@ -73,6 +76,6 @@ body {
     }
 
     .flavor-box {
-        max-width: 100%; /* Expand box width for smaller screens */
+        max-width: 100%;
     }
 }
