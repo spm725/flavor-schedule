@@ -45,43 +45,41 @@ if (flavorSection) {
 
     flavorSection.innerHTML = ''; // Clear section before adding flavors
 
-    const renderFlavorBox = (flavor, isCurrent = false) => {
-        const flavorBox = document.createElement('div');
-        flavorBox.className = `flavor-box ${isCurrent ? 'current-flavor' : ''}`;
-
-        if (isCurrent) {
-            // Render current flavor with larger image
-            flavorBox.innerHTML = `
-                <div class="flavor-text">
-                    <h3>Current Flavor</h3>
-                    <p>${flavor.text}</p>
-                </div>
-                <img src="${flavor.imageSrc}" alt="${flavor.text}" class="current-flavor-image" />
-            `;
-        } else {
-            // Render upcoming flavors without an image
-            flavorBox.innerHTML = `
-                <div class="flavor-text">
-                    <h3>Upcoming Flavor</h3>
-                    <p>${flavor.text}</p>
-                </div>
-            `;
-        }
-
-        flavorSection.appendChild(flavorBox);
-    };
+    const flavorBox = document.createElement('div');
+    flavorBox.className = 'flavor-box'; // Single box for all flavors
 
     // Add current flavor
     if (currentFlavor) {
-        renderFlavorBox(currentFlavor, true);
+        const currentFlavorText = `
+            <div class="flavor-text current-highlight">
+                <p>${currentFlavor.text}</p>
+            </div>
+        `;
+        flavorBox.innerHTML += currentFlavorText;
     } else {
         console.warn('No current flavor found for today:', today);
     }
 
     // Add upcoming flavors
     upcomingFlavors.forEach((flavor) => {
-        renderFlavorBox(flavor);
+        const upcomingFlavorText = `
+            <div class="flavor-text">
+                <p>${flavor.text}</p>
+            </div>
+        `;
+        flavorBox.innerHTML += upcomingFlavorText;
     });
+
+    flavorSection.appendChild(flavorBox);
+
+    // Add the current flavor image separately and align it
+    if (currentFlavor) {
+        const currentFlavorImage = document.createElement('img');
+        currentFlavorImage.src = currentFlavor.imageSrc;
+        currentFlavorImage.alt = currentFlavor.text;
+        currentFlavorImage.className = 'current-flavor-image';
+        flavorSection.appendChild(currentFlavorImage);
+    }
 } else {
     console.error('Flavor section is missing!');
 }
