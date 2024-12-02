@@ -13,8 +13,8 @@ body {
 /* Container for the flavor section */
 #flavor-section {
     display: flex;
-    flex-direction: row; /* Align text and image horizontally */
-    align-items: center; /* Vertically center the flavor box and image */
+    flex-direction: row; /* Align flavor box and image horizontally */
+    align-items: center; /* Align centers of flavor box and image vertically */
     gap: 20px; /* Space between flavor box and image */
     max-width: 800px; /* Limit section width */
     width: 100%; /* Make section responsive */
@@ -51,14 +51,14 @@ body {
     margin: 5px 0; /* Spacing between flavor text */
 }
 
-/* Image design */
+/* Current flavor image */
 .current-flavor-image {
-    width: 75%; /* Make the image 25% smaller than the flavor box */
+    width: 50%; /* Make the image smaller (50% of its natural size) */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure the image is not cropped */
     border-radius: 10px; /* Rounded corners for the image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow around the image */
-    align-self: center; /* Align image to the center of its container */
+    align-self: center; /* Center the image horizontally */
 }
 
 /* Responsive Design */
@@ -71,7 +71,7 @@ body {
     .current-flavor-image {
         margin-top: 10px; /* Add space above the image */
         width: auto; /* Reset width for smaller screens */
-        max-width: 100%; /* Limit to screen width */
+        max-width: 100%; /* Allow full width in small screens */
     }
 
     .flavor-box {
