@@ -37,7 +37,7 @@ body {
 
 /* Highlight for the current flavor */
 .current-highlight {
-    background-color: #ffff00; /* Bright highlighter yellow */
+    background-color: #FFFF33; /* Bright highlighter yellow */
     padding: 5px;
     margin: 10px 0;
     border-radius: 4px;
@@ -49,4 +49,7 @@ body {
 }
 
 /* Current flavor image */
-.current-fl
+.current-flavor-image {
+    width: 150px;
+    height: auto;
+    object-fit: contain; /*
