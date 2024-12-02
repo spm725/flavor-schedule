@@ -7,77 +7,62 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center; /* Center-aligns title and flavor text */
 }
 
 /* Container for the flavor section */
 #flavor-section {
     display: flex;
-    flex-direction: column; /* Stack flavor boxes */
+    flex-direction: row; /* Align image and text horizontally */
+    align-items: center; /* Align image with the flavor box */
     gap: 20px;
     max-width: 800px;
     width: 100%;
+    margin-top: 20px; /* Space below the title */
 }
 
-/* Flavor box container */
+/* Flavor box (single container for all flavors) */
 .flavor-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex: 1;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* To position the image outside */
-    overflow: visible;
+    text-align: left;
 }
 
-/* Highlight current flavor */
-.current-flavor {
-    border: 2px solid #ff9800;
-    box-shadow: 0 6px 12px rgba(255, 152, 0, 0.3);
+/* Highlight for the current flavor */
+.current-highlight {
+    background-color: #ffec99; /* Light yellow highlight (marker effect) */
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 4px;
 }
 
 /* Flavor text */
 .flavor-text {
-    flex: 1;
-    text-align: left;
+    margin: 10px 0;
 }
 
-.flavor-text h3 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.flavor-text p {
-    margin: 5px 0 0;
-}
-
+/* Current flavor image */
 .current-flavor-image {
-    width: 20%; /* Relative size for responsiveness */
-    max-width: 150px; /* Prevent it from getting too large */
+    width: 150px;
     height: auto;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    right: -170px;
+    align-self: flex-start; /* Align image to the top of the flavor box */
 }
 
 /* Responsive Behavior */
 @media (max-width: 768px) {
-    .flavor-box {
-        flex-direction: column;
+    #flavor-section {
+        flex-direction: column; /* Stack text and image vertically */
         align-items: center;
     }
 
-    .flavor-text {
-        text-align: center;
-    }
-
     .current-flavor-image {
-        position: static; /* Let it flow naturally in the layout */
-        margin-top: 10px; /* Add spacing between text and image */
-        right: 0; /* Reset any specific positioning */
+        margin-top: 10px; /* Add spacing when stacked */
     }
 }
