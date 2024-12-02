@@ -3,30 +3,11 @@ body {
     font-family: Arial, sans-serif; /* Clean font */
     background-color: #f9f9f9; /* Light gray background */
     margin: 0;
-    padding: 0;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-/* Navigation Menu */
-.nav-menu {
-    list-style: none;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-.nav-menu a:hover {
-    color: #FFFF33; /* Highlight yellow */
 }
 
 /* Container */
@@ -83,29 +64,6 @@ h1 {
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer */
-.footer-content {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-.footer-menu {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-.footer-menu a {
-    text-decoration: none;
-    color: #fff;
-}
-.footer-menu a:hover {
-    color: #FFFF33;
 }
 
 /* Responsive Design */
