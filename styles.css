@@ -27,19 +27,21 @@ body {
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px; /* Reduced padding */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
     display: flex;
     flex-direction: column; /* Stack flavors vertically */
-    gap: 10px; /* Add spacing between current and upcoming flavors */
+    gap: 8px; /* Reduced spacing between current and upcoming flavors */
+    max-width: 400px; /* Restrict maximum width */
+    font-size: 14px; /* Smaller font size for text */
 }
 
 /* Highlight for the current flavor */
 .current-highlight {
     background-color: #FFFF33; /* Bright highlighter yellow */
     padding: 5px;
-    margin: 10px 0;
+    margin: 5px 0; /* Reduced margins */
     border-radius: 4px;
 }
 
@@ -50,7 +52,7 @@ body {
 
 /* Current flavor image */
 .current-flavor-image {
-    width: 125%; /* 25% larger than its container */
+    width: calc(125%); /* Dynamically make the image 25% larger than the flavor box */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure the image is not cropped */
     border-radius: 10px;
@@ -68,5 +70,9 @@ body {
     .current-flavor-image {
         margin-top: 10px; /* Add spacing when stacked */
         width: auto; /* Reset to natural size for smaller screens */
+    }
+
+    .flavor-box {
+        max-width: 100%; /* Allow box to take full width on small screens */
     }
 }
