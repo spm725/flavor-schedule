@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center; /* Center-aligns title and flavor text */
+    text-align: center;
 }
 
 /* Container for the flavor section */
@@ -37,7 +37,7 @@ body {
 
 /* Highlight for the current flavor */
 .current-highlight {
-    background-color: #ffec99; /* Light yellow highlight (marker effect) */
+    background-color: #ffff00; /* Bright highlighter yellow */
     padding: 5px;
     margin: 10px 0;
     border-radius: 4px;
@@ -49,23 +49,4 @@ body {
 }
 
 /* Current flavor image */
-.current-flavor-image {
-    width: 150px;
-    height: auto;
-    object-fit: contain; /* Ensure the image is not cropped */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    align-self: flex-start; /* Align image to the top of the flavor box */
-}
-
-/* Responsive Behavior */
-@media (max-width: 768px) {
-    #flavor-section {
-        flex-direction: column; /* Stack text and image vertically */
-        align-items: center;
-    }
-
-    .current-flavor-image {
-        margin-top: 10px; /* Add spacing when stacked */
-    }
-}
+.current-fl
