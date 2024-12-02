@@ -35,6 +35,9 @@ body {
     gap: 8px;
     max-width: 400px; /* Restrict max width */
     font-size: 14px; /* Smaller font size */
+    position: relative;
+    box-sizing: border-box;
+    aspect-ratio: 3 / 2; /* Define aspect ratio for consistent height */
 }
 
 /* Highlight for the current flavor */
@@ -52,7 +55,7 @@ body {
 
 /* Current flavor image */
 .current-flavor-image {
-    width: 125%; /* Make the image 25% larger than the flavor box */
+    width: calc(100% + 25%); /* Make the image 25% wider than the flavor box */
     max-width: 500px; /* Restrict max width for large screens */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure no cropping */
