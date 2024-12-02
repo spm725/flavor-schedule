@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif; /* Clean font */
-    background-color: #f9f9f9; /* Light gray background */
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -10,29 +10,18 @@ body {
     text-align: center;
 }
 
-/* Container */
-.container {
-    padding: 20px;
-    max-width: 800px;
-    width: 100%;
-}
-
-/* Section Header */
-h1 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Flavor Section */
+/* Container for the flavor section */
 #flavor-section {
     display: flex;
-    flex-direction: row;
-    align-items: center; /* Center flavor box and image vertically */
+    flex-direction: row; /* Align text and image horizontally */
+    align-items: center; /* Align image with flavor box vertically */
     gap: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
 }
 
-/* Flavor Box */
+/* Flavor box (container for all flavors) */
 .flavor-box {
     flex: 1;
     background-color: #ffffff;
@@ -41,26 +30,31 @@ h1 {
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     max-width: 400px;
     font-size: 14px;
+    box-sizing: border-box;
 }
 
 /* Highlight for the current flavor */
 .current-highlight {
-    background-color: #FFFF33; /* Bright yellow highlight */
+    background-color: #FFFF33;
     padding: 5px;
+    margin: 5px 0;
     border-radius: 4px;
 }
 
 /* Flavor text */
 .flavor-text {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
-/* Current Flavor Image */
+/* Current flavor image */
 .current-flavor-image {
-    width: 30%; /* Smaller size */
-    height: auto; /* Maintain aspect ratio */
+    width: 25%; /* Image size proportional to the flavor box */
+    height: auto;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -69,12 +63,16 @@ h1 {
 /* Responsive Design */
 @media (max-width: 768px) {
     #flavor-section {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column; /* Stack flavor box and image vertically */
+        align-items: center;
     }
+
     .current-flavor-image {
-        width: 50%; /* Adjust size for smaller screens */
+        margin-top: 10px;
+        width: 50%; /* Scale down for smaller screens */
     }
+
     .flavor-box {
-        max-width: 100%;
+        max-width: 100%; /* Expand box width for smaller screens */
     }
 }
