@@ -43,33 +43,31 @@ if (flavorSection) {
         .filter((flavor) => new Date(flavor.start) > new Date(today))
         .slice(0, 3);
 
-    // Clear section before adding flavors
-    flavorSection.innerHTML = '';
+    flavorSection.innerHTML = ''; // Clear section before adding flavors
+
+    const renderFlavorBox = (flavor, isCurrent = false) => {
+        const flavorBox = document.createElement('div');
+        flavorBox.className = `flavor-box ${isCurrent ? 'current-flavor' : ''}`;
+        flavorBox.innerHTML = `
+            <div class="flavor-text">
+                <h3>${isCurrent ? 'Current Flavor' : 'Upcoming Flavor'}</h3>
+                <p>${flavor.text}</p>
+            </div>
+            <img src="${flavor.imageSrc}" alt="${flavor.text}" class="flavor-image" />
+        `;
+        flavorSection.appendChild(flavorBox);
+    };
 
     // Add current flavor
     if (currentFlavor) {
-        const currentFlavorBox = document.createElement('div');
-        currentFlavorBox.className = 'flavor-box current-flavor';
-        currentFlavorBox.innerHTML = `
-            <h3>Current Flavor</h3>
-            <img src="${currentFlavor.imageSrc}" alt="${currentFlavor.text}" class="flavor-image" />
-            <p>${currentFlavor.text}</p>
-        `;
-        flavorSection.appendChild(currentFlavorBox);
+        renderFlavorBox(currentFlavor, true);
     } else {
         console.warn('No current flavor found for today:', today);
     }
 
     // Add upcoming flavors
-    upcomingFlavors.forEach((flavor, index) => {
-        const upcomingFlavorBox = document.createElement('div');
-        upcomingFlavorBox.className = 'flavor-box';
-        upcomingFlavorBox.innerHTML = `
-            <h3>Upcoming Flavor ${index + 1}</h3>
-            <img src="${flavor.imageSrc}" alt="${flavor.text}" class="flavor-image" />
-            <p>${flavor.text}</p>
-        `;
-        flavorSection.appendChild(upcomingFlavorBox);
+    upcomingFlavors.forEach((flavor) => {
+        renderFlavorBox(flavor);
     });
 } else {
     console.error('Flavor section is missing!');
