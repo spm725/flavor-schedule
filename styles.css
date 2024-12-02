@@ -53,7 +53,7 @@ body {
 
 /* Current flavor image */
 .current-flavor-image {
-    width: 50%; /* Make the image smaller (50% of its natural size) */
+    width: 35%; /* Reduce image size further to 35% */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure the image is not cropped */
     border-radius: 10px; /* Rounded corners for the image */
