@@ -43,8 +43,10 @@ if (flavorSection) {
         .filter((flavor) => new Date(flavor.start) > new Date(today))
         .slice(0, 3);
 
-    flavorSection.innerHTML = ''; // Clear section before adding flavors
+    // Clear section before adding flavors
+    flavorSection.innerHTML = '';
 
+    // Add current flavor
     if (currentFlavor) {
         const currentFlavorBox = document.createElement('div');
         currentFlavorBox.className = 'flavor-box current-flavor';
@@ -54,8 +56,11 @@ if (flavorSection) {
             <p>${currentFlavor.text}</p>
         `;
         flavorSection.appendChild(currentFlavorBox);
+    } else {
+        console.warn('No current flavor found for today:', today);
     }
 
+    // Add upcoming flavors
     upcomingFlavors.forEach((flavor, index) => {
         const upcomingFlavorBox = document.createElement('div');
         upcomingFlavorBox.className = 'flavor-box';
