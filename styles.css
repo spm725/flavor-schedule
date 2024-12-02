@@ -50,6 +50,23 @@ body {
 
 /* Current flavor image */
 .current-flavor-image {
-    width: 150px;
-    height: auto;
-    object-fit: contain; /*
+    width: 125%; /* 25% larger than its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image is not cropped */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    align-self: flex-start; /* Align image to the top of the flavor box */
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+    #flavor-section {
+        flex-direction: column; /* Stack text and image vertically */
+        align-items: center;
+    }
+
+    .current-flavor-image {
+        margin-top: 10px; /* Add spacing when stacked */
+        width: auto; /* Reset to natural size for smaller screens */
+    }
+}
