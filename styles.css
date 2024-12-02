@@ -55,13 +55,13 @@ body {
 
 /* Current flavor image */
 .current-flavor-image {
-    width: 200px; /* Larger width for current flavor */
+    width: 150px; /* Adjusted to a more reasonable size */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure the image is not cropped */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
-    right: -220px; /* Position outside the box */
+    right: -170px; /* Adjusted to position neatly outside the flavor box */
 }
 
 /* Responsive Behavior */
