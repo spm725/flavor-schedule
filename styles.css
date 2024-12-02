@@ -28,7 +28,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* To position image outside */
+    position: relative; /* To position the image outside */
     overflow: visible;
 }
 
@@ -41,7 +41,6 @@ body {
 /* Flavor text */
 .flavor-text {
     flex: 1;
-    margin-right: 20px;
     text-align: left;
 }
 
@@ -54,15 +53,15 @@ body {
     margin: 5px 0 0;
 }
 
-/* Flavor image */
-.flavor-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+/* Current flavor image */
+.current-flavor-image {
+    width: 200px; /* Larger width for current flavor */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image is not cropped */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
-    right: -120px; /* Position the image outside the box */
+    right: -220px; /* Position outside the box */
 }
 
 /* Responsive Behavior */
@@ -74,10 +73,9 @@ body {
 
     .flavor-text {
         text-align: center;
-        margin-right: 0; /* Remove margin when stacking */
     }
 
-    .flavor-image {
+    .current-flavor-image {
         position: static; /* Let it flow naturally in the layout */
         margin-top: 10px; /* Add spacing between text and image */
         right: 0; /* Reset any specific positioning */
