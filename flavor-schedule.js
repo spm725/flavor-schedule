@@ -39,12 +39,11 @@ if (flavorSection) {
     const currentFlavor = flavorData.find(
         (flavor) => today >= flavor.start && today <= flavor.end
     );
-
     const upcomingFlavors = flavorData
         .filter((flavor) => new Date(flavor.start) > new Date(today))
         .slice(0, 3);
 
-    flavorSection.innerHTML = '';
+    flavorSection.innerHTML = ''; // Clear section before adding flavors
 
     if (currentFlavor) {
         const currentFlavorBox = document.createElement('div');
